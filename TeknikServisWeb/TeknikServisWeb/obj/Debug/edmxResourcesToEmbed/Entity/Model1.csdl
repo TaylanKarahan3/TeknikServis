@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbTeknikServisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_UrunTakip">
+    <Key>
+      <PropertyRef Name="TakipId" />
+    </Key>
+    <Property Name="TakipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="SeriNo" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="DbTeknikServisEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_UrunTakip" EntityType="Self.Tbl_UrunTakip" />
+    <EntitySet Name="Tbl_Hakkimizda" EntityType="DbTeknikServisModel.Tbl_Hakkimizda" />
+    <EntitySet Name="Tbl_Urun" EntityType="DbTeknikServisModel.Tbl_Urun" />
+    <EntitySet Name="Tbl_İletisim" EntityType="DbTeknikServisModel.Tbl_İletisim" />
+  </EntityContainer>
+  <EntityType Name="Tbl_Hakkimizda">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Metin" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Urun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Marka" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AlisFiyat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SatisFiyat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Stok" Type="Int16" />
+    <Property Name="Kategori" Type="Byte" />
+    <Property Name="Durum" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Tbl_İletisim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mesaj" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

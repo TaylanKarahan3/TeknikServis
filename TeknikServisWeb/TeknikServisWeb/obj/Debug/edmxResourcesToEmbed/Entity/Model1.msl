@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbTeknikServisModelStoreContainer" CdmEntityContainer="DbTeknikServisEntities">
+    <EntitySetMapping Name="Tbl_UrunTakip">
+      <EntityTypeMapping TypeName="DbTeknikServisModel.Tbl_UrunTakip">
+        <MappingFragment StoreEntitySet="Tbl_UrunTakip">
+          <ScalarProperty Name="TakipId" ColumnName="TakipId" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="SeriNo" ColumnName="SeriNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Hakkimizda">
+      <EntityTypeMapping TypeName="DbTeknikServisModel.Tbl_Hakkimizda">
+        <MappingFragment StoreEntitySet="Tbl_Hakkimizda">
+          <ScalarProperty Name="Metin" ColumnName="Metin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Urun">
+      <EntityTypeMapping TypeName="DbTeknikServisModel.Tbl_Urun">
+        <MappingFragment StoreEntitySet="Tbl_Urun">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+          <ScalarProperty Name="Stok" ColumnName="Stok" />
+          <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+          <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_İletisim">
+      <EntityTypeMapping TypeName="DbTeknikServisModel.Tbl_İletisim">
+        <MappingFragment StoreEntitySet="Tbl_İletisim">
+          <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

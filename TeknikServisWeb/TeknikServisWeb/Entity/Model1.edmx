@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbTeknikServisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Hakkimizda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Metin" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Tbl_İletisim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" />
+          <Property Name="Konu" Type="varchar" MaxLength="50" />
+          <Property Name="Mesaj" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Tbl_Urun">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="40" />
+          <Property Name="Marka" Type="varchar" MaxLength="30" />
+          <Property Name="AlisFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SatisFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Stok" Type="smallint" />
+          <Property Name="Kategori" Type="tinyint" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_UrunTakip">
+          <Key>
+            <PropertyRef Name="TakipId" />
+          </Key>
+          <Property Name="TakipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aciklama" Type="varchar" MaxLength="250" />
+          <Property Name="Tarih" Type="smalldatetime" />
+          <Property Name="SeriNo" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityContainer Name="DbTeknikServisModelStoreContainer">
+          <EntitySet Name="Tbl_Hakkimizda" EntityType="Self.Tbl_Hakkimizda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_İletisim" EntityType="Self.Tbl_İletisim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Urun" EntityType="Self.Tbl_Urun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_UrunTakip" EntityType="Self.Tbl_UrunTakip" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbTeknikServisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_UrunTakip">
+          <Key>
+            <PropertyRef Name="TakipId" />
+          </Key>
+          <Property Name="TakipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+          <Property Name="SeriNo" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DbTeknikServisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_UrunTakip" EntityType="Self.Tbl_UrunTakip" />
+          <EntitySet Name="Tbl_Hakkimizda" EntityType="DbTeknikServisModel.Tbl_Hakkimizda" />
+          <EntitySet Name="Tbl_Urun" EntityType="DbTeknikServisModel.Tbl_Urun" />
+          <EntitySet Name="Tbl_İletisim" EntityType="DbTeknikServisModel.Tbl_İletisim" />
+        </EntityContainer>
+        <EntityType Name="Tbl_Hakkimizda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Metin" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Urun">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Marka" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AlisFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SatisFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Stok" Type="Int16" />
+          <Property Name="Kategori" Type="Byte" />
+          <Property Name="Durum" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tbl_İletisim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mesaj" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbTeknikServisModelStoreContainer" CdmEntityContainer="DbTeknikServisEntities">
+          <EntitySetMapping Name="Tbl_UrunTakip">
+            <EntityTypeMapping TypeName="DbTeknikServisModel.Tbl_UrunTakip">
+              <MappingFragment StoreEntitySet="Tbl_UrunTakip">
+                <ScalarProperty Name="TakipId" ColumnName="TakipId" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="SeriNo" ColumnName="SeriNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Hakkimizda">
+            <EntityTypeMapping TypeName="DbTeknikServisModel.Tbl_Hakkimizda">
+              <MappingFragment StoreEntitySet="Tbl_Hakkimizda">
+                <ScalarProperty Name="Metin" ColumnName="Metin" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Urun">
+            <EntityTypeMapping TypeName="DbTeknikServisModel.Tbl_Urun">
+              <MappingFragment StoreEntitySet="Tbl_Urun">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+                <ScalarProperty Name="Stok" ColumnName="Stok" />
+                <ScalarProperty Name="SatisFiyat" ColumnName="SatisFiyat" />
+                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+                <ScalarProperty Name="Marka" ColumnName="Marka" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_İletisim">
+            <EntityTypeMapping TypeName="DbTeknikServisModel.Tbl_İletisim">
+              <MappingFragment StoreEntitySet="Tbl_İletisim">
+                <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+                <ScalarProperty Name="Konu" ColumnName="Konu" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

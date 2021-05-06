@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbTeknikServisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Hakkimizda">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Metin" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Tbl_İletisim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdSoyad" Type="varchar" MaxLength="50" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="Konu" Type="varchar" MaxLength="50" />
+    <Property Name="Mesaj" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Tbl_Urun">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="40" />
+    <Property Name="Marka" Type="varchar" MaxLength="30" />
+    <Property Name="AlisFiyat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SatisFiyat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Stok" Type="smallint" />
+    <Property Name="Kategori" Type="tinyint" />
+    <Property Name="Durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tbl_UrunTakip">
+    <Key>
+      <PropertyRef Name="TakipId" />
+    </Key>
+    <Property Name="TakipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="250" />
+    <Property Name="Tarih" Type="smalldatetime" />
+    <Property Name="SeriNo" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityContainer Name="DbTeknikServisModelStoreContainer">
+    <EntitySet Name="Tbl_Hakkimizda" EntityType="Self.Tbl_Hakkimizda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_İletisim" EntityType="Self.Tbl_İletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Urun" EntityType="Self.Tbl_Urun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_UrunTakip" EntityType="Self.Tbl_UrunTakip" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
